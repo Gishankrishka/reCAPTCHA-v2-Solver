@@ -114,6 +114,7 @@ def download_chrome(dest_dir: str = "cft_bundle", force: bool = False):
     if not force:
         try:
             chrome_bin = _find_executable(chrome_dir, chrome_names)
+            _find_executable(chrome_dir, {"chrome_crashpad_handler"})
             driver_bin = _find_executable(driver_dir, driver_names)
             print("[download_chrome] Using cached bundle.")
             return chrome_bin, driver_bin
@@ -151,6 +152,7 @@ def download_chrome(dest_dir: str = "cft_bundle", force: bool = False):
     _extract_zip(r.content, driver_dir)
 
     chrome_bin = _find_executable(chrome_dir, chrome_names)
+    _find_executable(chrome_dir, {"chrome_crashpad_handler"})
     driver_bin = _find_executable(driver_dir, driver_names)
 
     print(f"[download_chrome] Chrome binary: {chrome_bin}")
@@ -286,7 +288,7 @@ if __name__ == "__main__":
     try:
         check_extension_loaded(driver)
         
-        url = ("https://www.google.com/recaptcha/api2/demo")
+        url = ("https://www.nibmworldwide.com/exams/mis")
 
         token = test_recaptcha_v2(url)
         print(f"\nToken:\n{token}")
