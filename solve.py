@@ -288,7 +288,7 @@ if __name__ == "__main__":
     try:
         check_extension_loaded(driver)
         
-        url = ("https://www.nibmworldwide.com/exams/mis")
+        url = ("https://www.google.com/recaptcha/api2/demo")
 
         token = test_recaptcha_v2(url)
         print(f"\nToken:\n{token}")
